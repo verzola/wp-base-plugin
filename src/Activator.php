@@ -11,7 +11,6 @@ namespace Base;
  */
 class Activator
 {
-
     /**
      * Short Description. (use period)
      *

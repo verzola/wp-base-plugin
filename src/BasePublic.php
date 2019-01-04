@@ -42,7 +42,7 @@ class BasePublic
 
         wp_enqueue_style(
             $this->base->getPluginName(),
-            plugin_dir_url(dirname(__FILE__)) . 'dist/public.css',
+            BASE_URL . 'dist/public.css',
             array(),
             $this->base->getPluginVersion(),
             'all'
@@ -71,7 +71,7 @@ class BasePublic
 
         wp_enqueue_script(
             $this->base->getPluginName(),
-            plugin_dir_url(dirname(__FILE__)) . 'dist/public.js',
+            BASE_URL . 'dist/public.js',
             array( 'jquery' ),
             $this->base->getPluginVersion(),
             false

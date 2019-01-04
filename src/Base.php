@@ -15,7 +15,6 @@ namespace Base;
  */
 class Base
 {
-
     /**
      * The loader that's responsible for maintaining and registering all hooks that power
      * the plugin.

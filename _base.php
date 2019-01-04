@@ -26,6 +26,11 @@ if (! defined('WPINC')) {
     die;
 }
 
+defined('BASE_PATH') or define('BASE_PATH', plugin_dir_path(__FILE__));
+defined('BASE_URL') or define('BASE_URL', plugin_dir_url(__FILE__));
+defined('BASE_NAME') or define('BASE_NAME', 'Base');
+defined('BASE_VERSION') or define('BASE_VERSION', '1.0.0');
+
 require_once __DIR__ . '/vendor/autoload.php';
 
 $di = Base\ContainerFactory::make();

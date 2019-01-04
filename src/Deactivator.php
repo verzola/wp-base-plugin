@@ -11,7 +11,6 @@ namespace Base;
  */
 class Deactivator
 {
-
     /**
      * Short Description. (use period)
      *

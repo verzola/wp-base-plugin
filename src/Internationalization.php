@@ -12,8 +12,6 @@ namespace Base;
  */
 class Internationalization
 {
-
-
     /**
      * Load the plugin text domain for translation.
      *
@@ -24,7 +22,7 @@ class Internationalization
         load_plugin_textdomain(
             '_base',
             false,
-            dirname(dirname(plugin_basename(__FILE__))) . '/languages/'
+            BASE_PATH . '/resources/languages/'
         );
     }
 }

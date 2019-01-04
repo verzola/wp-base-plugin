@@ -1,13 +1,10 @@
 <?php
 
 return [
-    'pluginName' => '_base',
-    'pluginVersion' => '1.0.0',
-
     Base\Base::class => DI\create()
         ->constructor(
-            DI\get('pluginName'),
-            DI\get('pluginVersion'),
+            BASE_NAME,
+            BASE_VERSION,
             DI\get('Base\Loader'),
             DI\get('Base\Internationalization')
         )

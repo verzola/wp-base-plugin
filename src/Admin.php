@@ -10,7 +10,6 @@ namespace Base;
  */
 class Admin
 {
-
     /**
      * Initialize the class and set its properties.
      *
@@ -43,7 +42,7 @@ class Admin
 
         wp_enqueue_style(
             $this->base->getPluginName(),
-            plugin_dir_url(dirname(__FILE__)) . 'dist/admin.css',
+            BASE_URL . 'dist/admin.css',
             array(),
             $this->base->getPluginVersion(),
             'all'
@@ -72,7 +71,7 @@ class Admin
 
         wp_enqueue_script(
             $this->base->getPluginName(),
-            plugin_dir_url(dirname(__FILE__)) . 'dist/admin.js',
+            BASE_URL . 'dist/admin.js',
             array( 'jquery' ),
             $this->base->getPluginVersion(),
             false
