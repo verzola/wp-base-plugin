@@ -21,8 +21,11 @@ $ composer install
 
 ## TODO
 - [x] PSR4 Autoloading
-- [] Setup composer
-- [] Setup webpack
-- [] Setup pre-commit hook to use phpcsfixer
+- [x] Setup composer autoloading
+- [x] Install composer dependencies on plugin activation
 - [] Setup PHPDI
 - [] Create config file
+- [] Configure webpack
+- [] Configure pre-commit hook to use phpcsfixer
+- [] Create script to replace base with plugin name
+- [] Fix assets paths
