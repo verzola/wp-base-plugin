@@ -62,89 +62,16 @@ class Base
      *
      * @since    1.0.0
      */
-    public function __construct()
-    {
-        if (defined('PLUGIN_NAME_VERSION')) {
-            $this->version = PLUGIN_NAME_VERSION;
-        } else {
-            $this->version = '1.0.0';
-        }
-
-        $this->pluginName = '_base';
-
-        $this->loadDependencies();
-        $this->setLocale();
-        $this->defineAdminHooks();
-        $this->definePublicHooks();
-    }
-
-    /**
-     * Load the required dependencies for this plugin.
-     *
-     * Include the following files that make up the plugin:
-     *
-     * - _base_Loader. Orchestrates the hooks of the plugin.
-     * - _base_i18n. Defines internationalization functionality.
-     * - _base_Admin. Defines all hooks for the admin area.
-     * - _base_Public. Defines all hooks for the public side of the site.
-     *
-     * Create an instance of the loader which will be used to register the hooks
-     * with WordPress.
-     *
-     * @since    1.0.0
-     * @access   private
-     */
-    private function loadDependencies()
-    {
-        $this->loader = new \Base\Loader();
-    }
-
-    /**
-     * Define the locale for this plugin for internationalization.
-     *
-     * Uses the _base_i18n class in order to set the domain and to register the hook
-     * with WordPress.
-     *
-     * @since    1.0.0
-     * @access   private
-     */
-    private function setLocale()
-    {
-        $plugin_i18n = new \Base\Internationalization();
-
-        $this->loader->addAction('plugins_loaded', $plugin_i18n, 'loadPluginTextDomain');
-    }
-
-    /**
-     * Register all of the hooks related to the admin area functionality
-     * of the plugin.
-     *
-     * @since    1.0.0
-     * @access   private
-     */
-    private function defineAdminHooks()
-    {
-        $plugin_admin = new \Base\Admin($this->getPluginName(), $this->getVersion());
-
-        $this->loader->addAction('admin_enqueue_scripts', $plugin_admin, 'enqueueStyles');
-        $this->loader->addAction('admin_enqueue_scripts', $plugin_admin, 'enqueueScripts');
-
-        $this->loader->addAction('admin_menu', $plugin_admin, 'addMenu');
-    }
-
-    /**
-     * Register all of the hooks related to the public-facing functionality
-     * of the plugin.
-     *
-     * @since    1.0.0
-     * @access   private
-     */
-    private function definePublicHooks()
-    {
-        $plugin_public = new \Base\BasePublic($this->getPluginName(), $this->getVersion());
-
-        $this->loader->addAction('wp_enqueue_scripts', $plugin_public, 'enqueueStyles');
-        $this->loader->addAction('wp_enqueue_scripts', $plugin_public, 'enqueueScripts');
+    public function __construct(
+        string $pluginName,
+        string $pluginVersion,
+        Loader $loader,
+        Internationalization $intl
+    ) {
+        $this->pluginName = $pluginName;
+        $this->pluginVersion = $pluginVersion;
+        $this->loader = $loader;
+        $this->intl = $intl;
     }
 
     /**
@@ -154,6 +81,9 @@ class Base
      */
     public function run()
     {
+        $this->setLocale();
+        $this->defineAdminHooks();
+        $this->definePublicHooks();
         $this->loader->run();
     }
 
@@ -170,6 +100,17 @@ class Base
     }
 
     /**
+     * Retrieve the version number of the plugin.
+     *
+     * @since     1.0.0
+     * @return    string    The version number of the plugin.
+     */
+    public function getVersion()
+    {
+        return $this->version;
+    }
+
+    /**
      * The reference to the class that orchestrates the hooks with the plugin.
      *
      * @since     1.0.0
@@ -181,13 +122,74 @@ class Base
     }
 
     /**
-     * Retrieve the version number of the plugin.
+     * Define the locale for this plugin for internationalization.
      *
-     * @since     1.0.0
-     * @return    string    The version number of the plugin.
+     * Uses the _base_i18n class in order to set the domain and to register the hook
+     * with WordPress.
+     *
+     * @since    1.0.0
+     * @access   private
      */
-    public function getVersion()
+    private function setLocale()
     {
-        return $this->version;
+        $this->loader->addAction(
+            'plugins_loaded',
+            $this->intl,
+            'loadPluginTextDomain'
+        );
+    }
+
+    /**
+     * Register all of the hooks related to the admin area functionality
+     * of the plugin.
+     *
+     * @since    1.0.0
+     * @access   private
+     */
+    private function defineAdminHooks()
+    {
+        $admin = new Admin($this);
+
+        $this->loader->addAction(
+            'admin_enqueue_scripts',
+            $admin,
+            'enqueueStyles'
+        );
+
+        $this->loader->addAction(
+            'admin_enqueue_scripts',
+            $admin,
+            'enqueueScripts'
+        );
+
+        $this->loader->addAction(
+            'admin_menu',
+            $admin,
+            'addMenu'
+        );
+    }
+
+    /**
+     * Register all of the hooks related to the public-facing functionality
+     * of the plugin.
+     *
+     * @since    1.0.0
+     * @access   private
+     */
+    private function definePublicHooks()
+    {
+        $admin = new BasePublic($this);
+
+        $this->loader->addAction(
+            'wp_enqueue_scripts',
+            $basePublic,
+            'enqueueStyles'
+        );
+
+        $this->loader->addAction(
+            'wp_enqueue_scripts',
+            $basePublic,
+            'enqueueScripts'
+        );
     }
 }

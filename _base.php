@@ -30,18 +30,22 @@ if (! defined('WPINC')) {
     die;
 }
 
-define('PLUGIN_NAME_VERSION', '1.0.0');
-
 require_once __DIR__ . '/vendor/autoload.php';
 
-$di = new \DI\Container();
+$builder = new \DI\ContainerBuilder();
+$builder->addDefinitions(__DIR__ . '/config/container.php');
+$di = $builder->build();
 
-register_activation_hook(__FILE__, function () {
-    \Base\Activator::activate();
-});
+register_activation_hook(
+    __FILE__,
+    [$di->get('Base\Activator'), 'activate']
+);
 
-register_deactivation_hook(__FILE__, function () {
-    \Base\Deactivator::deactivate();
-});
+register_deactivation_hook(
+    __FILE__,
+    [$di->get('Base\Deactivator'), 'deactivate']
+);
 
-(new Base\Base())->run();
+
+$plugin = $di->get('Base\Base');
+$plugin->run();

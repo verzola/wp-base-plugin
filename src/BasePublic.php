@@ -16,36 +16,14 @@ namespace Base;
  */
 class BasePublic
 {
-
-    /**
-     * The ID of this plugin.
-     *
-     * @since    1.0.0
-     * @access   private
-     * @var      string    $plugin_name    The ID of this plugin.
-     */
-    private $pluginName;
-
-    /**
-     * The version of this plugin.
-     *
-     * @since    1.0.0
-     * @access   private
-     * @var      string    $version    The current version of this plugin.
-     */
-    private $version;
-
     /**
      * Initialize the class and set its properties.
      *
      * @since    1.0.0
-     * @param      string    $plugin_name       The name of the plugin.
-     * @param      string    $version    The version of this plugin.
      */
-    public function __construct($pluginName, $version)
+    public function __construct(Base $base)
     {
-        $this->pluginName = $pluginName;
-        $this->version = $version;
+        $this->base = $base;
     }
 
     /**
@@ -68,7 +46,13 @@ class BasePublic
          * class.
          */
 
-        wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'dist/public.css', array(), $this->version, 'all');
+        wp_enqueue_style(
+            $this->base->getPluginName(),
+            plugin_dir_url(__FILE__) . 'dist/public.css',
+            array(),
+            $this->base->getVersion(),
+            'all'
+        );
     }
 
     /**
@@ -91,6 +75,12 @@ class BasePublic
          * class.
          */
 
-        wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'dist/public.js', array( 'jquery' ), $this->version, false);
+        wp_enqueue_script(
+            $this->base->getPluginName(),
+            plugin_dir_url(__FILE__) . 'dist/public.js',
+            array( 'jquery' ),
+            $this->base->getVersion(),
+            false
+        );
     }
 }
