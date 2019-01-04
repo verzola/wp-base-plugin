@@ -1,4 +1,3 @@
-const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const FriendlyErrorsWebpackPlugin = require("friendly-errors-webpack-plugin");
 const ImageminPlugin = require("imagemin-webpack-plugin").default;
@@ -18,15 +17,15 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: devMode ? "[name].js" : "[name].[hash].js"
+    filename: "[name].js"
   },
   externals: {
     jquery: "jQuery"
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: devMode ? "[name].css" : "[name].[hash].css",
-      chunkFilename: devMode ? "[id].css" : "[id].[hash].css"
+      filename: "[name].css",
+      chunkFilename: "[id].css"
     }),
     new CleanWebpackPlugin(["dist"]),
     new FriendlyErrorsWebpackPlugin(),
@@ -51,14 +50,12 @@ module.exports = {
       {
         test: /\.(sa|sc|c)ss$/,
         use: [
-          devMode
-            ? "style-loader"
-            : {
-                loader: MiniCssExtractPlugin.loader,
-                options: {
-                  publicPath: "./"
-                }
-              },
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: "./"
+            }
+          },
           "css-loader",
           "postcss-loader",
           "sass-loader"

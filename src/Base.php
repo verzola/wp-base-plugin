@@ -75,6 +75,7 @@ class Base
         $this->setLocale();
         $this->defineAdminHooks();
         $this->definePublicHooks();
+
         $this->loader->run();
     }
 
@@ -96,9 +97,9 @@ class Base
      * @since     1.0.0
      * @return    string    The version number of the plugin.
      */
-    public function getVersion()
+    public function getPluginVersion()
     {
-        return $this->version;
+        return $this->pluginVersion;
     }
 
     /**
@@ -169,7 +170,7 @@ class Base
      */
     private function definePublicHooks()
     {
-        $admin = new BasePublic($this);
+        $basePublic = new BasePublic($this);
 
         $this->loader->addAction(
             'wp_enqueue_scripts',

@@ -43,9 +43,9 @@ class Admin
 
         wp_enqueue_style(
             $this->base->getPluginName(),
-            plugin_dir_url(__FILE__) . 'dist/admin.css',
+            plugin_dir_url(dirname(__FILE__)) . 'dist/admin.css',
             array(),
-            $this->base->getVersion(),
+            $this->base->getPluginVersion(),
             'all'
         );
     }
@@ -72,9 +72,9 @@ class Admin
 
         wp_enqueue_script(
             $this->base->getPluginName(),
-            plugin_dir_url(__FILE__) . 'dist/admin.js',
+            plugin_dir_url(dirname(__FILE__)) . 'dist/admin.js',
             array( 'jquery' ),
-            $this->base->getVersion(),
+            $this->base->getPluginVersion(),
             false
         );
     }
