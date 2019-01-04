@@ -25,7 +25,7 @@ $ composer install
 - [x] Install composer dependencies on plugin activation
 - [x] Setup PHPDI
 - [x] Create config file
-- [] Configure webpack
+- [x] Configure webpack
+- [x] Fix assets paths
 - [] Configure pre-commit hook to use phpcsfixer
 - [] Create script to replace base with plugin name
-- [] Fix assets paths
