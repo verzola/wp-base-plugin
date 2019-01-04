@@ -51,6 +51,10 @@
       "eslint --fix",
       "git add"
     ],
+    "*.{json,css,md}": [
+      "prettier --write",
+      "git add"
+    ],
     "*.php": [
       "./vendor/bin/phpcs --fix",
       "git add"
