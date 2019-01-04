@@ -13,9 +13,9 @@
 
 ## Setup
 ```sh
-$ git clone git@bitbucket.org:webfatorial/wp-plugin-base.git
-$ mv wp-plugin-base <wp folder>/wp-content/plugins
-$ cd <wp folder>/wp-content/plugins/wp-plugin-base
+$ git clone git@bitbucket.org:webfatorial/wp-plugin-base.git _base
+$ mv _base <wp folder>/wp-content/plugins/
+$ cd <wp folder>/wp-content/plugins/_base
 $ composer install
 ```
 
