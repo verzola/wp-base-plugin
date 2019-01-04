@@ -101,9 +101,9 @@ class Admin
             'Base',
             'Base <span class="update-plugins count-123"><span class="plugin-count">123</span></span>',
             'manage_options',
-            'base/dashboard.php',
+            'base/home.php',
             [$this, 'menuPage'],
-            'dashicons-visibility',
+            'dashicons-admin-home',
             80
         );
     }
