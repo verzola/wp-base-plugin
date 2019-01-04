@@ -56,7 +56,7 @@
       "git add"
     ],
     "*.php": [
-      "./vendor/bin/phpcs --fix",
+      "./vendor/bin/php-cs-fixer fix'",
       "git add"
     ]
   }
