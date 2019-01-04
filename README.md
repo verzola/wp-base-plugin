@@ -3,12 +3,13 @@
 ## Features
 - Composer
 - PSR-4 Autoloading
+- Code sniffer
+- Dependency injection
 - PHPUnit
-- PHPCSFixer
-- PHPDI
 
 ## Requirements
 - PHP
+- Node
 - Composer
 
 ## Setup
@@ -16,8 +17,14 @@
 $ git clone git@bitbucket.org:webfatorial/wp-plugin-base.git _base
 $ mv _base <wp folder>/wp-content/plugins/
 $ cd <wp folder>/wp-content/plugins/_base
-$ composer install
 ```
+
+## Helpers
+- ./bin/build -> install composer with no dev flag
+- ./bin/dev -> runs webpack watch mode
+- ./bin/format -> format code with phpcs
+- ./bin/install -> install composer and npm dependencies
+- ./bin/test -> run phpunit test suite
 
 ## TODO
 - [x] PSR4 Autoloading
