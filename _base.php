@@ -34,6 +34,8 @@ define('PLUGIN_NAME_VERSION', '1.0.0');
 
 require_once __DIR__ . '/vendor/autoload.php';
 
+$di = new \DI\Container();
+
 register_activation_hook(__FILE__, function () {
     \Base\Activator::activate();
 });

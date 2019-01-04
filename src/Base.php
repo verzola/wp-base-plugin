@@ -143,8 +143,8 @@ class Base
     {
         $plugin_public = new \Base\BasePublic($this->getPluginName(), $this->getVersion());
 
-        $this->loader->addAction('wp_enqueue_scripts', $plugin_public, 'enqueue_styles');
-        $this->loader->addAction('wp_enqueue_scripts', $plugin_public, 'enqueue_scripts');
+        $this->loader->addAction('wp_enqueue_scripts', $plugin_public, 'enqueueStyles');
+        $this->loader->addAction('wp_enqueue_scripts', $plugin_public, 'enqueueScripts');
     }
 
     /**

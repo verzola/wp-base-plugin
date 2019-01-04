@@ -69,7 +69,7 @@ class Admin
          * class.
          */
 
-        wp_enqueue_style($this->pluginName, plugin_dir_url(__FILE__) . 'css/_base-admin.css', array(), $this->version, 'all');
+        wp_enqueue_style($this->pluginName, plugin_dir_url(__FILE__) . 'dist/admin.css', array(), $this->version, 'all');
     }
 
     /**
@@ -92,7 +92,7 @@ class Admin
          * class.
          */
 
-        wp_enqueue_script($this->pluginName, plugin_dir_url(__FILE__) . 'js/_base-admin.js', array( 'jquery' ), $this->version, false);
+        wp_enqueue_script($this->pluginName, plugin_dir_url(__FILE__) . 'dist/admin.js', array( 'jquery' ), $this->version, false);
     }
 
     public function addMenu()
@@ -110,6 +110,6 @@ class Admin
 
     public function menuPage()
     {
-        require_once __DIR__ . '/../views/admin/home.php';
+        require_once __DIR__ . '/../resources/views/admin/home.php';
     }
 }
