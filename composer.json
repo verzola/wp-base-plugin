@@ -1,0 +1,23 @@
+{
+    "name": "webfatorial/base-plugin",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Webfatorial",
+            "email": "developer@webfatorial.com"
+        }
+    ],
+    "require": {
+        "friendsofphp/php-cs-fixer": "^2.13",
+        "php-di/php-di": "^6.0",
+        "ocramius/proxy-manager": "^2.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7"
+    },
+    "autoload": {
+      "psr-4": {
+        "Base\\": "src/"
+      }
+    }
+}
