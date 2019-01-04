@@ -3,12 +3,6 @@
 namespace Base;
 
 /**
- * Register all actions and filters for the plugin
- *
- * @since      1.0.0
- */
-
-/**
  * Register all actions and filters for the plugin.
  *
  * Maintain a list of all hooks that are registered throughout

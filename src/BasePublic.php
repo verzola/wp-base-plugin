@@ -5,12 +5,6 @@ namespace Base;
 /**
  * The public-facing functionality of the plugin.
  *
- * @since      1.0.0
- */
-
-/**
- * The public-facing functionality of the plugin.
- *
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the public-facing stylesheet and JavaScript.
  */

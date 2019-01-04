@@ -13,7 +13,8 @@ module.exports = {
   mode: devMode ? "development" : "production",
   devtool: devMode ? "inline-source-map" : false,
   entry: {
-    main: "./src/js/index.js"
+    admin: "./resources/assets/js/admin.js",
+    public: "./resources/assets/js/public.js"
   },
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -23,25 +24,10 @@ module.exports = {
     jquery: "jQuery"
   },
   plugins: [
-    new BrowserSyncPlugin(
-      {
-        host: "localhost",
-        port: 3000,
-        proxy: "http://wordpress",
-        files: ["**/*.php"],
-        open: false,
-        minify: false,
-        notify: false
-      },
-      {
-        injectCss: true
-      }
-    ),
     new MiniCssExtractPlugin({
       filename: devMode ? "[name].css" : "[name].[hash].css",
       chunkFilename: devMode ? "[id].css" : "[id].[hash].css"
     }),
-    new StyleLintPlugin(),
     new CleanWebpackPlugin(["dist"]),
     new FriendlyErrorsWebpackPlugin(),
     new ImageminPlugin({
@@ -59,8 +45,7 @@ module.exports = {
             options: {
               presets: ["@babel/preset-env"]
             }
-          },
-          "eslint-loader"
+          }
         ]
       },
       {

@@ -1,9 +1,8 @@
 {
   "private": true,
-  "name": "base-theme",
-  "version": "0.0.1",
+  "name": "base-plugin",
+  "version": "1.0.0",
   "scripts": {
-    "format": "prettier --write \"**/*.{js,json,scss,md}\"",
     "build": "NODE_ENV=production webpack --progress --hide-modules --env.production",
     "start": "NODE_ENV=development webpack --watch --progress --hide-modules"
   },

@@ -3,12 +3,6 @@
 namespace Base;
 
 /**
- * Fired during plugin deactivation
- *
- * @since      1.0.0
- */
-
-/**
  * Fired during plugin deactivation.
  *
  * This class defines all code necessary to run during the plugin's deactivation.

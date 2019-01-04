@@ -23,8 +23,8 @@ $ composer install
 - [x] PSR4 Autoloading
 - [x] Setup composer autoloading
 - [x] Install composer dependencies on plugin activation
-- [] Setup PHPDI
-- [] Create config file
+- [x] Setup PHPDI
+- [x] Create config file
 - [] Configure webpack
 - [] Configure pre-commit hook to use phpcsfixer
 - [] Create script to replace base with plugin name
