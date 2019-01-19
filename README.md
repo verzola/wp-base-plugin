@@ -1,6 +1,7 @@
 # Base Plugin
 
 ## Features
+
 - Composer
 - PSR-4 Autoloading
 - Code sniffer
