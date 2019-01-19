@@ -8,18 +8,21 @@
 - PHPUnit
 
 ## Requirements
+
 - PHP
 - Node
 - Composer
 
 ## Setup
+
 ```sh
-$ git clone git@bitbucket.org:webfatorial/wp-plugin-base.git _base
+$ git clone git@github.com:verzola/wp-base-plugin.git _base
 $ mv _base <wp folder>/wp-content/plugins/
 $ cd <wp folder>/wp-content/plugins/_base
 ```
 
 ## Helpers
+
 - ./bin/build -> install composer with no dev flag
 - ./bin/dev -> runs webpack watch mode
 - ./bin/format -> format code with phpcs
@@ -27,6 +30,7 @@ $ cd <wp folder>/wp-content/plugins/_base
 - ./bin/test -> run phpunit test suite
 
 ## TODO
+
 - [x] PSR4 Autoloading
 - [x] Setup composer autoloading
 - [x] Install composer dependencies on plugin activation
