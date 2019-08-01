@@ -1,43 +1,48 @@
-# Base Plugin
+# Wordpress Base Plugin
 
 ## Features
 
-- Composer
 - PSR-4 Autoloading
-- Code sniffer
-- Dependency injection
-- PHPUnit
-
-## Requirements
-
-- PHP
-- Node
+- Code Sniffer
+- Dependency Injection
 - Composer
+- PHPUnit
 
 ## Setup
 
 ```sh
+# enter in wordpress plugins folder 
+$ cd wp-content/plugins
+
+# clone base plugin
 $ git clone git@github.com:verzola/wp-base-plugin.git _base
-$ mv _base <wp folder>/wp-content/plugins/
-$ cd <wp folder>/wp-content/plugins/_base
+
+# enter in base plugin directory
+$ cd _base
+
+# start browsersync development server
+$ npm run dev
+
+# compile assets for production
+$ npm run build
+
 ```
 
 ## Helpers
 
-- ./bin/build -> install composer with no dev flag
-- ./bin/dev -> runs webpack watch mode
-- ./bin/format -> format code with phpcs
-- ./bin/install -> install composer and npm dependencies
-- ./bin/test -> run phpunit test suite
+```sh
+# install dependencies and build for production
+$ ./bin/build
 
-## TODO
+# start webpack in watch mode
+$ ./bin/dev
 
-- [x] PSR4 Autoloading
-- [x] Setup composer autoloading
-- [x] Install composer dependencies on plugin activation
-- [x] Setup PHPDI
-- [x] Create config file
-- [x] Configure webpack
-- [x] Fix assets paths
-- [] Configure pre-commit hook to use phpcsfixer
-- [] Create script to replace base with plugin name
+# formats code
+$ ./bin/format
+
+# install dependencies
+$ ./bin/install
+
+# run test suite
+$ ./bin/test
+```
