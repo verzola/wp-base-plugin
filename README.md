@@ -22,6 +22,9 @@ $ git clone git@github.com:verzola/wp-base-plugin.git _base
 # enter in base plugin directory
 $ cd _base
 
+# install dependencies
+$ npm install
+
 # start browsersync development server
 $ npm run dev
 
