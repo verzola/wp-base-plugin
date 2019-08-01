@@ -8,7 +8,8 @@
     "lint:js": "eslint resources/assets/js/**/*.js",
     "lint:scss": "stylelint \"resources/assets/scss/**/*.scss\"",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules --env.production",
-    "start": "cross-env NODE_ENV=development webpack --watch --progress --hide-modules --env.development",
+    "start": "npm run dev",
+    "dev": "cross-env NODE_ENV=development webpack --watch --progress --hide-modules --env.development",
     "test": "npm run -s lint"
   },
   "author": "_author",
