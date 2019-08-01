@@ -1,5 +1,7 @@
 # Wordpress Base Plugin
 
+Webpack and Composer base plugin for Wordpress
+
 ## Features
 
 - PSR-4 Autoloading
