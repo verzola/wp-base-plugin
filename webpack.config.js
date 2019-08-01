@@ -1,4 +1,4 @@
-const CleanWebpackPlugin = require("clean-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const FriendlyErrorsWebpackPlugin = require("friendly-errors-webpack-plugin");
 const ImageminPlugin = require("imagemin-webpack-plugin").default;
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -27,7 +27,7 @@ module.exports = {
       filename: "[name].css",
       chunkFilename: "[id].css"
     }),
-    new CleanWebpackPlugin(["dist"]),
+    new CleanWebpackPlugin(),
     new FriendlyErrorsWebpackPlugin(),
     new ImageminPlugin({
       disable: process.env.NODE_ENV !== "production"
